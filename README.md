@@ -1,6 +1,6 @@
-Subgroup K3: A‑to‑B Navigation with G1 EDU in Gazebo
+# Subgroup K3: A‑to‑B Navigation with G1 EDU in Gazebo
 
-Assignment 3: Standalone Point‑to‑Point Navigation Benchmark for Indoor Robot Operation (SIMULATION)
+## Assignment 3: Standalone Point‑to‑Point Navigation Benchmark for Indoor Robot Operation (SIMULATION)
 
 What to do: Build and evaluate a standalone A‑to‑B indoor navigation system in Gazebo using ROS2 Humble, focusing on path planning, local obstacle avoidance, and recovery behavior in benchmark scenarios
 1) Set up a complete indoor navigation scenario in Gazebo with a fixed known map and simulator‑provided baseline localization
