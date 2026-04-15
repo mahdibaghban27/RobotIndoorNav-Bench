@@ -17,3 +17,7 @@ Software needed: Gazebo, ROS2 Humble, Nav2, RViz2, DWB / TEB / MPPI planners
 Research needed: Indoor robot navigation, local planner benchmarking, obstacle avoidance, recovery behaviors in autonomous navigation
 
 Deliverables: Standalone A‑to‑B navigation pipeline, benchmark scenarios in Gazebo, planner comparison report, navigation performance evaluation
+
+# Stating point:
+- The robot Unitree G1 29 degrees of freedom (DOF).
+- 3D LIDAR (LIVOX-MID360) + Depth Camera Intel RealSense (D435i)
