@@ -36,13 +36,6 @@ The overall design is a **hybrid reactive-deliberative cognitive architecture**:
   <img src="docs/images/architecture.png" alt="Hybrid reactive-deliberative architecture" width="100%">
 </p>
 
-Command flow:
-
-```text
-Nav2 local planner/controller -> /nav_cmd_vel ----\
-                                                   > subsumption_mux -> /cmd_vel -> G1
-LaserScan -> Braitenberg reflex -> /reflex_cmd_vel /
-```
 
 ---
 
