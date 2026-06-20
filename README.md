@@ -240,7 +240,7 @@ The benchmark contained **45 runs**: five scenarios, three planners, and three r
 
 In `house_dynamic`, the Braitenberg-inspired reflex provided an immediate safety response to the suddenly appearing obstacle. ThetaStar replanning and the local planner then handled the alternative route. Nav2 recovery was evaluated separately when normal navigation lost progress.
 
-## Limitations
+## Limitation
 
 - The evaluation is simulation-only.
 - Localization is provided by the simulator baseline.
