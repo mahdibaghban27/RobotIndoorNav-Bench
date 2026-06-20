@@ -27,9 +27,6 @@ The architecture combines hierarchical navigation with execution monitoring, Nav
 
 ```text
 ros2_ws/
-├── build/
-├── install/
-├── log/
 ├── results_corridor/
 ├── results_doorway/
 ├── results_clutter/
