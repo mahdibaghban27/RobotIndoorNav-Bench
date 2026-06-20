@@ -14,7 +14,7 @@ The project compares three Nav2 local planners—**DWB**, **MPPI**, and **Regula
 - **Global planner:** ThetaStar
 - **Local planners:** DWB, MPPI, and RPP
 - **Scenarios:** Corridor, doorway, clutter, house dynamic, and maze
-- **Evaluation:** Success rate, completion time, path efficiency, final goal error, recovery count, clearance, and collision-proxy events
+- **Evaluation:** Success rate, completion time, path efficiency, final goal error, recovery count, reflex count, and collision-proxy events
 
 The architecture combines hierarchical navigation with execution monitoring, Nav2 recovery, and a Braitenberg-inspired reflexive safety behavior.
 
