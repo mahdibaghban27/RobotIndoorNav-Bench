@@ -1,0 +1,18 @@
+areas:
+  clutter_start:
+    pose: [1.5, 1.5, 0.0]
+    type: room
+  clutter_mid_1:
+    pose: [4.0, 2.0, 0.0]
+    type: passage
+  clutter_mid_2:
+    pose: [7.0, 4.0, 0.0]
+    type: passage
+  clutter_goal:
+    pose: [10.5, 6.5, 0.0]
+    type: room
+edges:
+  clutter_start: [clutter_mid_1]
+  clutter_mid_1: [clutter_start, clutter_mid_2]
+  clutter_mid_2: [clutter_mid_1, clutter_goal]
+  clutter_goal: [clutter_mid_2]

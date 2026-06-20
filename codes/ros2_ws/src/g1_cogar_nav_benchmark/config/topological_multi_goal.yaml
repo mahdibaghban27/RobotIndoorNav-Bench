@@ -1,0 +1,22 @@
+areas:
+  lobby:
+    pose: [1.2, 1.2, 0.0]
+    type: room
+  corridor_north:
+    pose: [3.8, 1.2, 0.0]
+    type: corridor
+  door_east:
+    pose: [6.0, 3.0, 0.0]
+    type: doorway
+  hall_center:
+    pose: [8.0, 5.0, 0.0]
+    type: corridor
+  exit:
+    pose: [10.8, 7.0, 0.0]
+    type: goal
+edges:
+  lobby: [corridor_north]
+  corridor_north: [lobby, door_east]
+  door_east: [corridor_north, hall_center]
+  hall_center: [door_east, exit]
+  exit: [hall_center]

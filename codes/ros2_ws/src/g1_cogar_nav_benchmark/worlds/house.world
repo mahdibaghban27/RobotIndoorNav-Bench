@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="house">
+    <gravity>0 0 -9.8</gravity>
+    <include><uri>model://ground_plane</uri></include>
+    <include><uri>model://sun</uri></include>
+
+    <!-- Outer boundary walls (12 m x 8 m) -->
+    <model name="box_0"><static>true</static><pose>6.000 0.050 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>12.000 0.100 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>12.000 0.100 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+    <model name="box_1"><static>true</static><pose>6.000 7.950 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>12.000 0.100 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>12.000 0.100 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+    <model name="box_2"><static>true</static><pose>0.050 4.000 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 8.000 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 8.000 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+    <model name="box_3"><static>true</static><pose>11.950 4.000 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 8.000 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 8.000 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+
+    <!-- Horizontal interior wall at y=4, door gap at x=[4.0, 5.2] -->
+    <!-- Left segment: x=[0.1, 4.0] -->
+    <model name="box_4"><static>true</static><pose>2.050 4.000 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>3.900 0.100 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>3.900 0.100 1.000</size></box></geometry><material><ambient>0.8 0.6 0.4 1</ambient><diffuse>0.8 0.6 0.4 1</diffuse></material></visual></link></model>
+    <!-- Right segment: x=[5.2, 11.9] -->
+    <model name="box_5"><static>true</static><pose>8.550 4.000 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>6.700 0.100 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>6.700 0.100 1.000</size></box></geometry><material><ambient>0.8 0.6 0.4 1</ambient><diffuse>0.8 0.6 0.4 1</diffuse></material></visual></link></model>
+
+    <!-- Vertical interior wall at x=3, y=[0.1, 4.0], door gap at y=[1.5, 2.7] -->
+    <!-- Bottom segment: y=[0.1, 1.5] -->
+    <model name="box_6"><static>true</static><pose>3.000 0.800 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 1.400 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 1.400 1.000</size></box></geometry><material><ambient>0.8 0.6 0.4 1</ambient><diffuse>0.8 0.6 0.4 1</diffuse></material></visual></link></model>
+    <!-- Top segment: y=[2.7, 4.0] -->
+    <model name="box_7"><static>true</static><pose>3.000 3.350 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 1.300 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 1.300 1.000</size></box></geometry><material><ambient>0.8 0.6 0.4 1</ambient><diffuse>0.8 0.6 0.4 1</diffuse></material></visual></link></model>
+
+    <!-- Vertical interior wall at x=6, y=[4.0, 8.0], door gap at y=[5.0, 6.2] -->
+    <!-- Bottom segment: y=[4.0, 5.0] -->
+    <model name="box_8"><static>true</static><pose>6.000 4.500 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 1.000 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 1.000 1.000</size></box></geometry><material><ambient>0.8 0.6 0.4 1</ambient><diffuse>0.8 0.6 0.4 1</diffuse></material></visual></link></model>
+    <!-- Top segment: y=[6.2, 7.95] -->
+    <model name="box_9"><static>true</static><pose>6.000 7.075 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 1.750 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 1.750 1.000</size></box></geometry><material><ambient>0.8 0.6 0.4 1</ambient><diffuse>0.8 0.6 0.4 1</diffuse></material></visual></link></model>
+
+  </world>
+</sdf>

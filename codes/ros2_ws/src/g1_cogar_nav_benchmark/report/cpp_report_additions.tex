@@ -1,0 +1,60 @@
+\section{C++ ROS2 implementation update}
+
+In the final implementation, all runtime ROS2 nodes were rewritten in \textbf{C++ using rclcpp}, while the
+offline metrics aggregation and report-generation tools remained in \textbf{Python}. This split was intentional:
+C++ was used for the online components involved in runtime sensing, coordination, logging, and benchmark
+execution, whereas Python was retained for offline data analysis and automatic report generation.
+
+\subsection{Runtime nodes implemented in C++}
+
+\begin{table}[H]
+\centering
+\caption{Final implementation split between online C++ ROS2 nodes and offline Python tools.}
+\small
+\begin{tabularx}{\linewidth}{>{\bfseries}p{3.2cm}p{3.1cm}X>{\raggedright\arraybackslash}p{1.6cm}}
+\toprule
+Component & Role & CogAR interpretation & Language \\
+\midrule
+\texttt{braitenberg\_reflex} & immediate obstacle-driven turn-away response & bio-inspired behavior + computational + publish-subscribe & C++ \\
+\texttt{subsumption\_mux} & fixed-priority command arbitration & subsumption / fixed-priority coordination & C++ \\
+\texttt{benchmark\_logger} & odom/cmd/scan logging with service control & computational + request-process-reply & C++ \\
+\texttt{benchmark\_runner} & scenario execution and metadata generation & plan/act interface for benchmark orchestration & C++ \\
+\texttt{topological\_goal\_manager\_cli} & symbolic route computation over topological areas & hierarchical planning / symbolic GO-TO operator & C++ \\
+\texttt{summarize\_results.py} & per-run metric extraction & offline computational analysis & Python \\
+\texttt{aggregate\_results.py} & cross-run aggregation & experiment pipeline support & Python \\
+\texttt{update\_report\_data.py} & generation of tables and figures for LaTeX & reproducibility support & Python \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Why this split is architecturally coherent}
+
+This implementation split also reinforces the CogAR interpretation of the software. The online ROS2 nodes are
+responsible for sensing, coordination, safety reaction, and benchmark execution, which makes them part of the
+\textbf{robot cognitive architecture itself}. In contrast, the Python scripts operate after the run has completed and
+therefore belong to the \textbf{experimental evaluation pipeline}, not to the runtime robot architecture.
+
+\subsection{Build and reproducibility notes}
+
+The project is meant to be built in a ROS2 Humble environment using \texttt{colcon build --symlink-install}. Dependencies
+are resolved through \texttt{rosdep}, and the final tables/plots are generated from recorded CSV logs rather than inserted
+manually. This keeps the report consistent with the benchmark evidence produced in Gazebo.
+
+\subsection{Verification items to report}
+
+The final report should explicitly mention which of the following checks were completed on the target machine:
+\begin{itemize}
+  \item successful package build with \texttt{colcon};
+  \item correct registration of the package executables;
+  \item visibility of the runtime nodes through \texttt{ros2 node list};
+  \item correct advertisement of \texttt{/benchmark\_logger/enable};
+  \item successful route generation by the topological planner CLI;
+  \item creation of \texttt{run\_metadata.yaml} and benchmark CSV logs during an actual run.
+\end{itemize}
+
+\subsection{Limitations to acknowledge}
+
+The C++ rewrite does not remove the remaining integration dependencies of the project. In particular, the final
+Gazebo execution still depends on the lab-provided G1 package, the final locomotion command topic may require a
+small adapter, and TEB should only be included in the benchmark if a Humble-compatible plugin is actually available
+in the lab environment.

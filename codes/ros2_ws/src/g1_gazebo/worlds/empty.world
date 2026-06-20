@@ -1,0 +1,10 @@
+git status --short |
+grep -E 'codes/ros2_ws/(build|install|log)/' \
+|| echo "OK: build, install and log are excluded"<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="empty">
+    <gravity>0 0 -9.8</gravity>
+    <include><uri>model://ground_plane</uri></include>
+    <include><uri>model://sun</uri></include>
+  </world>
+</sdf>

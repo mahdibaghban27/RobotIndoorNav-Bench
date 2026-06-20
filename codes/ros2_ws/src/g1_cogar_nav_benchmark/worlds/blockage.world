@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="blockage">
+    <gravity>0 0 -9.8</gravity>
+    <include><uri>model://ground_plane</uri></include>
+    <include><uri>model://sun</uri></include>
+
+    <model name="box_0"><static>true</static><pose>6.000 0.050 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>12.000 0.100 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>12.000 0.100 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+    <model name="box_1"><static>true</static><pose>6.000 5.950 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>12.000 0.100 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>12.000 0.100 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+    <model name="box_2"><static>true</static><pose>0.050 3.000 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 6.000 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 6.000 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+    <model name="box_3"><static>true</static><pose>11.950 3.000 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 6.000 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 6.000 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+    <model name="box_4"><static>true</static><pose>6.000 3.000 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>1.600 1.600 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>1.600 1.600 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+    <model name="box_5"><static>true</static><pose>6.950 3.500 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.300 2.600 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.300 2.600 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+
+    <model name="dynamic_blocker">
+      <static>false</static>
+      <pose>6.100 3.000 0.450 0 0 1.57079632679</pose>
+      <link name="body">
+        <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.25</ixx><ixy>0.0</ixy><ixz>0.0</ixz>
+            <iyy>0.25</iyy><iyz>0.0</iyz>
+            <izz>0.25</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision"><geometry><box><size>0.40 0.80 0.90</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.40 0.80 0.90</size></box></geometry><material><ambient>0.8 0.2 0.2 1</ambient><diffuse>0.8 0.2 0.2 1</diffuse></material></visual>
+      </link>
+      <plugin name="dynamic_blocker_planar_move" filename="libgazebo_ros_planar_move.so">
+        <ros>
+          <namespace>/dynamic_blocker</namespace>
+          <remapping>cmd_vel:=cmd_vel</remapping>
+        </ros>
+        <publish_rate>20.0</publish_rate>
+        <publish_odom>false</publish_odom>
+        <publish_odom_tf>false</publish_odom_tf>
+        <commandTopic>cmd_vel</commandTopic>
+      </plugin>
+    </model>
+  </world>
+</sdf>
