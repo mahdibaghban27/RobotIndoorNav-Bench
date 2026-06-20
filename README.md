@@ -4,7 +4,7 @@ A standalone indoor navigation benchmark for the **Unitree G1 EDU** robot in **G
 
 The project compares three Nav2 local planners—**DWB**, **MPPI**, and **Regulated Pure Pursuit (RPP)**—under identical indoor benchmark conditions. A common **ThetaStar** global planner is used in every run. The system also includes execution monitoring, Nav2 recovery, CSV telemetry, automated result aggregation, and a hard-wired **Braitenberg-inspired safety reflex** with subsumption-based command arbitration.
 
-> **Full project report:** [COGAR G1 Navigation Project Report](Report and Simulation Videos/COGAR_G1_Navigation_Project_Report.pdf)
+> **Full project report:** [COGAR G1 Navigation Project Report](Report%20and%20Simulation%20Videos/COGAR_G1_Navigation_Project_Report.pdf)
 
 ## Project Overview
 
