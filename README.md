@@ -26,9 +26,6 @@ The architecture combines hierarchical navigation with execution monitoring, Nav
 
 ## Workspace Structure
 
-<p align="center">
-  <img src="docs/images/project_structure.png" alt="ROS 2 workspace structure" width="55%">
-</p>
 
 ```text
 ros2_ws/
