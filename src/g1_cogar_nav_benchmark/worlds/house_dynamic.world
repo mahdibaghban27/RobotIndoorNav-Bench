@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="house_dynamic">
+    <gravity>0 0 -9.8</gravity>
+    <include><uri>model://ground_plane</uri></include>
+    <include><uri>model://sun</uri></include>
+
+    <!-- Outer boundary walls (12 m x 8 m) -->
+    <model name="box_0"><static>true</static><pose>6.000 0.050 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>12.000 0.100 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>12.000 0.100 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+    <model name="box_1"><static>true</static><pose>6.000 7.950 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>12.000 0.100 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>12.000 0.100 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+    <model name="box_2"><static>true</static><pose>0.050 4.000 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 8.000 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 8.000 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+    <model name="box_3"><static>true</static><pose>11.950 4.000 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 8.000 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 8.000 1.000</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual></link></model>
+
+    <!-- Horizontal interior wall at y=4
+         Original door gap:  x=[4.0,  5.2]  (1.2 m) — gets BLOCKED at t=10 s
+         Purple door gap:    x=[9.0, 10.2]  (1.2 m) — gets OPENED  at t=10 s -->
+    <!-- Left segment   x=[0.1, 4.0] -->
+    <model name="box_4"><static>true</static><pose>2.050 4.000 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>3.900 0.100 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>3.900 0.100 1.000</size></box></geometry><material><ambient>0.8 0.6 0.4 1</ambient><diffuse>0.8 0.6 0.4 1</diffuse></material></visual></link></model>
+    <!-- Middle segment  x=[5.2, 9.0] -->
+    <model name="box_5"><static>true</static><pose>7.100 4.000 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>3.800 0.100 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>3.800 0.100 1.000</size></box></geometry><material><ambient>0.8 0.6 0.4 1</ambient><diffuse>0.8 0.6 0.4 1</diffuse></material></visual></link></model>
+    <!-- Right segment   x=[10.2, 11.95] -->
+    <model name="box_5b"><static>true</static><pose>11.075 4.000 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>1.750 0.100 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>1.750 0.100 1.000</size></box></geometry><material><ambient>0.8 0.6 0.4 1</ambient><diffuse>0.8 0.6 0.4 1</diffuse></material></visual></link></model>
+
+    <!-- Vertical interior wall at x=3, y=[0.1,4], door gap at y=[1.5, 2.7] -->
+    <model name="box_6"><static>true</static><pose>3.000 0.800 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 1.400 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 1.400 1.000</size></box></geometry><material><ambient>0.8 0.6 0.4 1</ambient><diffuse>0.8 0.6 0.4 1</diffuse></material></visual></link></model>
+    <model name="box_7"><static>true</static><pose>3.000 3.350 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 1.300 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 1.300 1.000</size></box></geometry><material><ambient>0.8 0.6 0.4 1</ambient><diffuse>0.8 0.6 0.4 1</diffuse></material></visual></link></model>
+
+    <!-- Vertical interior wall at x=6, y=[4,8], door gap at y=[5.0, 6.2] -->
+    <model name="box_8"><static>true</static><pose>6.000 4.500 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 1.000 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 1.000 1.000</size></box></geometry><material><ambient>0.8 0.6 0.4 1</ambient><diffuse>0.8 0.6 0.4 1</diffuse></material></visual></link></model>
+    <model name="box_9"><static>true</static><pose>6.000 7.075 0.500 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>0.100 1.750 1.000</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.100 1.750 1.000</size></box></geometry><material><ambient>0.8 0.6 0.4 1</ambient><diffuse>0.8 0.6 0.4 1</diffuse></material></visual></link></model>
+
+    <!-- ================================================================
+         DYNAMIC ELEMENTS — controlled by house_dynamic_obstacle_commander
+         At t=0:  purple_door is present (blocks purple gap x=[9,10.2]).
+                  blocker_1 does NOT exist yet.
+         At t=10s: purple_door is deleted (gap opens).
+                   blocker_1 is spawned at original door x=[4,5.2] (gap closes).
+         ================================================================ -->
+
+    <!-- purple_door (PURPLE): static blocker, present from start.
+         Deleted at t=10 s by the commander node via /delete_entity. -->
+    <model name="purple_door">
+      <static>true</static>
+      <pose>9.600 4.000 0.450 0 0 1.5707963</pose>
+      <link name="body">
+        <collision name="col"><geometry><box><size>0.25 1.40 0.90</size></box></geometry></collision>
+        <visual    name="vis"><geometry><box><size>0.25 1.40 0.90</size></box></geometry>
+          <material><ambient>0.6 0.0 0.9 1</ambient><diffuse>0.6 0.0 0.9 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

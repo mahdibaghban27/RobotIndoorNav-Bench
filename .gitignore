@@ -1,0 +1,16 @@
+build/
+install/
+log/
+
+__pycache__/
+*.pyc
+*.pyo
+
+*.bak
+*Zone.Identifier*
+.DS_Store
+Thumbs.db
+
+*.zip
+*.tar
+*.tar.gz
