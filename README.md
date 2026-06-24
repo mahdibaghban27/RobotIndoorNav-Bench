@@ -24,6 +24,10 @@ The architecture combines hierarchical navigation with execution monitoring, Nav
   <img src="Images/architecture.png" alt="Project architecture" width="95%">
 </p>
 
+
+The project uses a hybrid reactive–deliberative architecture built around the Sense–Plan/Reasoning–Act model. A simulated 3D LiDAR publishes `/livox/points`, which is converted into a two-dimensional `/scan` stream for Nav2 costmaps, local obstacle handling, and the Braitenberg reflex. ThetaStar generates the global route, while DWB, MPPI, or RPP acts as the selected local planner to follow it and publish the normal command on `/nav_cmd_vel`. A subsumption coordinator normally forwards this command, but temporarily selects `/reflex_cmd_vel` when the reflex is active; the final command is then published on `/cmd_vel`. Navigation goals are sent through the `/navigate_to_pose` action, robot state is provided through `/odom` and the `map → odom → base_link` TF chain, and benchmark data are recorded for execution and safety metrics.
+
+
 ## Workspace Structure
 
 
