@@ -8,6 +8,8 @@ The project compares three Nav2 local planners—**DWB**, **MPPI**, and **Regula
 
 ## Project Overview
 
+![Demo](Image/Mppi_Housedynamic.gif)
+
 - **Robot:** Unitree G1 EDU abstraction, 29 DOF
 - **Sensors:** Livox MID-360-style LiDAR and Intel RealSense D435i-style depth camera
 - **Localization:** Simulator-provided baseline localization
