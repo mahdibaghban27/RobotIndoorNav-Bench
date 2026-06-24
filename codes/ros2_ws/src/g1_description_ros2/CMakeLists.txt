@@ -1,15 +1,31 @@
 cmake_minimum_required(VERSION 3.8)
 project(g1_description_ros2)
 
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
-endif()
-
 find_package(ament_cmake REQUIRED)
 
-install(
-  DIRECTORY urdf meshes launch rviz config
-  DESTINATION share/${PROJECT_NAME}
+set(RESOURCE_DIRECTORIES
+  urdf
+  meshes
+  launch
+  rviz
+  config
 )
+
+set(EXISTING_RESOURCE_DIRECTORIES "")
+
+foreach(resource_directory IN LISTS RESOURCE_DIRECTORIES)
+  if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${resource_directory}")
+    list(APPEND EXISTING_RESOURCE_DIRECTORIES "${resource_directory}")
+  else()
+    message(STATUS "Skipping missing directory: ${resource_directory}")
+  endif()
+endforeach()
+
+if(EXISTING_RESOURCE_DIRECTORIES)
+  install(
+    DIRECTORY ${EXISTING_RESOURCE_DIRECTORIES}
+    DESTINATION share/${PROJECT_NAME}
+  )
+endif()
 
 ament_package()
